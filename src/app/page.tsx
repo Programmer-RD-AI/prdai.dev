@@ -39,7 +39,6 @@ export default function Home() {
             disabled={false}
             speed={3}
             className="text-white custom-class"
-
           />
         </div>
       </div>

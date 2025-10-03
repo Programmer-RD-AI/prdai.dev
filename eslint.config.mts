@@ -7,7 +7,5 @@ export default antfu({
     semi: true,
     quotes: 'single',
   },
-  ignores: [
-    './src/components/',
-  ],
+  ignores: ['./src/components/'],
 });

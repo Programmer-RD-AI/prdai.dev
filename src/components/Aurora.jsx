@@ -124,8 +124,7 @@ export default function Aurora(props) {
 
   useEffect(() => {
     const ctn = ctnDom.current;
-    if (!ctn)
-      return;
+    if (!ctn) return;
 
     const renderer = new Renderer({
       alpha: true,
@@ -141,8 +140,7 @@ export default function Aurora(props) {
     let program;
 
     function resize() {
-      if (!ctn)
-        return;
+      if (!ctn) return;
       const width = ctn.offsetWidth;
       const height = ctn.offsetHeight;
       renderer.setSize(width, height);

@@ -30,8 +30,7 @@ function SplitText({
   useEffect(() => {
     if (document.fonts.status === 'loaded') {
       setFontsLoaded(true);
-    }
-    else {
+    } else {
       document.fonts.ready.then(() => {
         setFontsLoaded(true);
       });
@@ -40,15 +39,13 @@ function SplitText({
 
   useGSAP(
     () => {
-      if (!ref.current || !text || !fontsLoaded)
-        return;
+      if (!ref.current || !text || !fontsLoaded) return;
       const el = ref.current;
 
       if (el._rbsplitInstance) {
         try {
           el._rbsplitInstance.revert();
-        }
-        catch (_) {
+        } catch (_) {
           /* noop */
         }
         el._rbsplitInstance = null;
@@ -58,8 +55,8 @@ function SplitText({
       const marginMatch = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin);
       const marginValue = marginMatch ? Number.parseFloat(marginMatch[1]) : 0;
       const marginUnit = marginMatch ? marginMatch[2] || 'px' : 'px';
-      const sign
-        = marginValue === 0
+      const sign =
+        marginValue === 0
           ? ''
           : marginValue < 0
             ? `-=${Math.abs(marginValue)}${marginUnit}`
@@ -74,8 +71,7 @@ function SplitText({
           targets = self.words;
         if (!targets && splitType.includes('lines') && self.lines.length)
           targets = self.lines;
-        if (!targets)
-          targets = self.chars || self.words || self.lines;
+        if (!targets) targets = self.chars || self.words || self.lines;
       };
 
       const splitInstance = new GSAPSplitText(el, {
@@ -109,7 +105,7 @@ function SplitText({
               },
               willChange: 'transform, opacity',
               force3D: true,
-            },
+            }
           );
           return tween;
         },
@@ -119,13 +115,11 @@ function SplitText({
 
       return () => {
         ScrollTrigger.getAll().forEach((st) => {
-          if (st.trigger === el)
-            st.kill();
+          if (st.trigger === el) st.kill();
         });
         try {
           splitInstance.revert();
-        }
-        catch (_) {
+        } catch (_) {
           /* noop */
         }
         el._rbsplitInstance = null;
@@ -146,7 +140,7 @@ function SplitText({
         onLetterAnimationComplete,
       ],
       scope: ref,
-    },
+    }
   );
 
   const renderTag = () => {
